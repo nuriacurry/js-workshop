@@ -1,0 +1,12 @@
+{
+    "workbench.colorTheme": "Dracula Theme",
+    "terminal.integrated.fontFamily": "Monaco",
+    "workbench.colorCustomizations": {
+        "editor.background": "#1a1a1a",
+        "sideBar.background": "#1a1a1a",
+        "activityBar.background": "#1a1a1a",
+        "terminal.background": "#1a1a1a",
+        "terminal.foreground": "#d4d4d4",
+        "terminalCursor.foreground": "#5ac8fa",
+    }
+}
