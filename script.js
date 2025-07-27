@@ -149,11 +149,38 @@ function myLastIndexOf(array, searchElement) {
     return -1;
 }
 
-// function push appends a value to an array
+// push appends a value to an array
 function myPush(array, value) {
     array[array.length] = value;
     return array.length;
 }
-console.log(numbers.length);
-console.log(myPush(numbers, 7));
 
+// test
+// console.log(numbers.length);
+// console.log(myPush(numbers, 7));
+
+// keys returns the names of all the keys in an object
+function grabKeys(object) {
+    let keys = [];
+
+    for (let key in object) {
+        keys.push(key);
+    }
+    
+    return keys;
+}
+
+const student = {name: 'John', age: 22, major: 'CS'};
+console.log(grabKeys(student));
+
+// values returns the valuee of all the keys in an object
+function grabValues(object) {
+    let values = [];
+    for (let key in object) {
+        values.push(object[key])
+    }
+
+    return values;
+}
+
+console.log(grabValues(student));
