@@ -8,8 +8,8 @@ function myEach(array, callback) {
 }
 
 // testing it
-const arr = [1, 2, 3 , 4, 5];
-myEach(arr, function(number) {console.log(number);});
+// const arr = [1, 2, 3 , 4, 5];
+// myEach(arr, function(number) {console.log(number);});
 
 // map runs function on each element, returns results into new array
 function myMap(array, callback) {
@@ -22,11 +22,11 @@ function myMap(array, callback) {
 }
 
 // test it
-let numbers = [1, 2, 3, 4, 5];
-let doubledNumbers = myMap(numbers, function(number) {
-    return number * 2; 
-});
-console.log(doubledNumbers);
+const numbers = [1, 2, 3, 4, 5];
+// let doubledNumbers = myMap(numbers, function(number) {
+//     return number * 2; 
+// });
+// console.log(doubledNumbers);
 
 // testing different ways to define a function:
 // doubledNumbers = myMap(numbers, x => x * 2);
@@ -48,10 +48,10 @@ function myFilter(array, callback) {
 }
 
 // test it
-let evenNumbers = myFilter(numbers, function(number) {
-    return number % 2 === 0; 
-});
-console.log("Even numbers: ", evenNumbers);
+// let evenNumbers = myFilter(numbers, function(number) {
+//     return number % 2 === 0; 
+// });
+// console.log("Even numbers: ", evenNumbers);
 
 
 // some returns true if any element passes the test implemented by the provided function
@@ -59,20 +59,101 @@ function mySome(array, callback) {
     for (let i = 0; i < array.length; i++) {
         if (callback(array[i])) {
             return true;
-        } else {
+        }
+    }
+    return false;
+}
+
+// // test it
+// let isThreeThere = mySome(numbers, function(x) {
+//     return x === 3
+// });
+// console.log("Is three there?: ", isThreeThere);
+
+// // test it
+// let isSixThere = mySome(numbers, function(x) {
+//     return x === 6
+// });
+// console.log("Is six there?: ", isSixThere);
+
+// every returns true if EVERY elemnent passes the test implemented by the provided function
+function myEvery(array, callback) {
+    for (let i = 0; i < array.length; i++) {
+        if (!callback(array[i])) {
             return false;
         }
     }
+    return true;
 }
 
 // test it
-let isThreeThere = mySome(numbers, function(x) {
-    return x === 3
-});
-console.log("Is three there?: ", isThreeThere);
+// let areAllEven = myEvery(numbers, function(x) {
+//     return x % 2 === 0
+// });
+// console.log("Are all even?: ", areAllEven);
+
+// reduce combines all elements into a single value using an accumulator
+function myReduce(array, callback, initialValue) {
+    let accumulator = initialValue;
+    for (let i = 0; i < array.length; i++) {
+        accumulator = callback(accumulator, array[i]);
+    }
+    return accumulator;
+}
 
 // test it
-let isSixThere = mySome(numbers, function(x) {
-    return x === 6
-});
-console.log("Is six there?: ", isSixThere);
+// let sum = myReduce(numbers, function(acc, num) {
+//     return acc + num;
+// }, 0);
+// console.log(sum); 
+
+// inludes return true if a search value is in the array
+function myIncludes(array, searchElement) {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === searchElement) {
+            return true;
+        }
+    }
+    return false;
+}
+
+// test it
+// let isseventhere = myIncludes(numbers, 7);
+// console.log("is seven there?", isseventhere);
+
+// let five = myIncludes(numbers, 1);
+// console.log("is one there?", five);
+
+
+// indexOf returns the index of the first position of a search element
+function myIndexOf(array, searchElement) {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === searchElement) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+//test
+// let two = myIndexOf(numbers, 6);
+// console.log("Where's 6", two);
+
+// lastIndexOf returns the index of the last position of a search element
+function myLastIndexOf(array, searchElement) {
+    for (let i = array.length - 1; i > -1; i--) {
+        if(array[i] === searchElement) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+// function push appends a value to an array
+function myPush(array, value) {
+    array[array.length] = value;
+    return array.length;
+}
+console.log(numbers.length);
+console.log(myPush(numbers, 7));
+
